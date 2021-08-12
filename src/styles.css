@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+form {
+  border: 2ps solid black;
+  padding: 2rem;
+  width: 500px;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+html,
+body {
+  height: 100%;
+}
+form {
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+app-root {
+  margin: 10px auto;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

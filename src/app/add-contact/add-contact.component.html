@@ -1,0 +1,66 @@
+<h1>Add Contact</h1>
+
+<form class="example-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="firstName">firstName</mat-label>
+    <input matInput formControlName="firstName" type="text" />
+    <div *ngIf="submitted && f.firstName.errors.required">
+      this field is required
+    </div>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="lastName">lastName</mat-label>
+    <input matInput formControlName="lastName" type="text" />
+    <div *ngIf="submitted && f.lastName.errors.required">
+      this field is required
+    </div>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="designation">designation</mat-label>
+    <input matInput formControlName="designation" type="text" />
+  </mat-form-field>
+  <br />
+
+
+  <mat-label for="phoneNumbers">phone Number</mat-label>
+  <a href="javascript:void()" mat-button color='primary' (click)="addAlternatePhoneNumber()">+ Add phone number</a>
+  <div formArrayName="phoneNumbers" *ngFor="let phoneNumber of alternatePhoneNumbers.controls; let i = index">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <input matInput type="text" [formControlName]="i">
+    </mat-form-field>
+  </div>
+  <br>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="email">email</mat-label>
+    <input matInput formControlName="email" type="email" />
+    <div *ngIf="submitted && f.email.errors.required">this field is required</div>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="longitude">Current Longitude</mat-label>
+    <input matInput formControlName="longitude" type="text" />
+    <div *ngIf="submitted && f.longitude.errors.required">
+      this field is required
+    </div>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label for="latitude">Current Latitude</mat-label>
+    <input matInput formControlName="latitude" type="text" />
+    <div *ngIf="submitted && f.latitude.errors.required">
+      this field is required
+    </div>
+  </mat-form-field>
+  <br />
+
+  <button value="save" mat-button mat-flat-button color='primary' style="margin: 20px 10px;">Save</button>
+  <a href="javascript:(void);" mat-button mat-stroked-button (click)="onDiscard()">discard</a>
+</form>

@@ -1,0 +1,54 @@
+<h3>Edit Contact</h3>
+
+
+<form [formGroup]="contactForm" class='example-form' (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="firstName">firstName</mat-label>
+        <input matInput formControlName="firstName" type="text" />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="lastName">lastName</mat-label>
+        <input matInput formControlName="lastName" type="text" />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="designation">designation</mat-label>
+        <input matInput formControlName="designation" type="text" />
+    </mat-form-field>
+    <br />
+
+    <div>
+        <mat-label for="phoneNumbers">phone Number</mat-label>
+        <a mat-button color='primary' href="javascript:void()" (click)="addAlternatePhoneNumber()">+ Add phone
+            number</a>
+        <div formArrayName="phoneNumbers" *ngFor="let phoneNumber of alternatePhoneNumbers.controls; let i = index">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <input matInput type="text" [formControlName]="i">
+            </mat-form-field>
+        </div>
+    </div>
+    <br>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="email">email</mat-label>
+        <input matInput formControlName="email" type="email" />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="longitude">Current Longitude</mat-label>
+        <input matInput formControlName="longitude" type="text" />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label for="latitude">Current Latitude</mat-label>
+        <input matInput formControlName="latitude" type="text" />
+    </mat-form-field>
+    <br />
+
+    <button mat-button mat-flat-button color='primary' value="save">Save</button>
+</form>
